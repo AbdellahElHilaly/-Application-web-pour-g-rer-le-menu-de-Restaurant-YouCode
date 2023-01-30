@@ -27,3 +27,4 @@ We are looking for a talented developer to create a web application for managing
 -   As an administrator, I can update my account information such as email and password at any time.
 -   As a visitor, I can view the different dishes available on the menu with clear images and descriptions.
 -   As an administrator, I can add, edit or delete dishes on the menu using a simple and intuitive interface.
+* Jira Link: https://abdellah3youcode.atlassian.net/jira/software/projects/AWPGLMDRY/boards/6
