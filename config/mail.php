@@ -91,10 +91,19 @@ return [
     |
     */
 
+
+    /*
     'from' => [
         'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
         'name' => env('MAIL_FROM_NAME', 'Example'),
     ],
+    */
+
+
+    'from' => ['address' => 'abdellah.elhilaly.96@gmail.com', 'name' => 'youcode_restaurant'],
+
+
+
 
     /*
     |--------------------------------------------------------------------------
