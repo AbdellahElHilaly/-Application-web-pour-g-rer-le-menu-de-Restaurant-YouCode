@@ -5,14 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Menu extends Model
+class Category extends Model
 {
     use HasFactory;
     protected $guarded = []; // items can't into in the data base  != filabel
-    public function category()
+    public function menus()
     {
-        return $this->belongsTo(Category::class);
+        return $this->hasMany(Menu::class);
     }
-
 
 }

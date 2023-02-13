@@ -19,20 +19,3 @@
         </div>
     </body>
 </html>
-
-
-{{--
-
-    views
-        api
-        auth
-        layouts
-        menue
-        profile
-        -dashboard.blade.php
-        -navigation.blade.php
-        -policy.blade.php
-        -terms.blade.php
-        -welcome.blade.php
-
-    --}}

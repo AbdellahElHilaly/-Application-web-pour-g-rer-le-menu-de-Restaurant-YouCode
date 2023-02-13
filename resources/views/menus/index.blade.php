@@ -5,10 +5,15 @@
 
     <div class="d-flex justify-between my-2">
         <h1 class="text-2xl font-semibold">Menu List</h1>
-        <a href="{{ route('menue.create') }}" class="btn btn-primary btn-sm d-flex align-items-center ">
-            <iconify-icon icon="ic:baseline-add-circle-outline" class="me-2 "></iconify-icon>
-            Add
-        </a>
+            <div class="d-flex">
+                <a  href="{{ route('menue.create') }}" class="me-3 btn btn-primary btn-sm d-flex align-items-center ">
+                    <iconify-icon icon="ic:baseline-add-circle-outline" class="me-2 "></iconify-icon>
+                    Add
+                </a>
+                <a href="{{ route('category.home') }}" class="btn btn-primary btn-sm d-flex align-items-center ">
+                    Categoies
+                </a>
+            </div>
     </div>
 
 
@@ -21,6 +26,7 @@
                         <th>Name</th>
                         <th>Description</th>
                         <th>Price</th>
+                        <th>Catrgoty</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -28,10 +34,11 @@
                     @foreach ($menus as $menu)
                         <tr>
                             <td>{{ $menu->id }}</td>
-                            <td ><img class="img-thumbnail " style="max-width: 200px; " src="https://img.freepik.com/photos-gratuite/poulet-doner-kebab-legumes_181624-18732.jpg"  alt="Menu item 1" ></td>
+                            <td ><img class="img-thumbnail " style="max-width: 200px; " src="{{ asset('images/plats/' . $menu->image)}}"  alt="Menu item 1" ></td>
                             <td>{{ $menu->name }}</td>
                             <td>{{ $menu->description }}</td>
                             <td>{{ $menu->price }} $</td>
+                            <td>{{ $menu->category->name }}</td>
 
                             <td>
                                 <form action="{{ route('menue.destroy' , $menu) }}" method="POST" >

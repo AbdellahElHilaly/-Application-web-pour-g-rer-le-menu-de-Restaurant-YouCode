@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\MenuController;
+use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,9 +25,17 @@ Route::middleware([
     'verified'
 ])->group(function () {
     Route::get('/dashboard', function () {
-        return view('dashboard');
+        return view('welcome');
     })->name('dashboard');
 });
 
+
 Route::resource('menue' , MenuController::class);
+Route::get('ff', [CategoryController::class, 'home'])->name('category.home');
+Route::resource('category', CategoryController::class);
+
+
+
+
+
 

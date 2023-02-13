@@ -12,13 +12,21 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->text('description');
-            $table->decimal('price', 8, 2); //12345678.12
+            $table->decimal('price', 8, 2);
+            $table->string('image')->default('default');
+            $table->unsignedBigInteger('category_id');
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
             $table->timestamps();
         });
+
     }
+
 
     public function down()
     {
         Schema::dropIfExists('menus');
     }
 };
+
+
+
