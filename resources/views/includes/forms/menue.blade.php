@@ -1,3 +1,6 @@
+<div id="alert-action" class="alert alert-success alert-dismissible fade " role="alert">
+</div>
+
 <div class="container my-5">
     <h1 class="text-center fs-2 mb-3">{{ $formTitle }}</h1>
 

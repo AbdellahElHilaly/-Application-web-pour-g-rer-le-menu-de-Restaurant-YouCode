@@ -31,7 +31,8 @@ Route::middleware([
 
 
 Route::resource('menue' , MenuController::class);
-Route::get('ff', [CategoryController::class, 'home'])->name('category.home');
+Route::get('ajax', [CategoryController::class, 'home'])->name('category.home');
+Route::get('category/delete-all', [CategoryController::class, 'destroyAll'])->name('category.destroyAll');
 Route::resource('category', CategoryController::class);
 
 

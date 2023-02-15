@@ -10,11 +10,16 @@
                     <iconify-icon icon="ic:baseline-add-circle-outline" class="me-2 "></iconify-icon>
                     Add
                 </a>
-                <a href="{{ route('category.home') }}" class="btn btn-primary btn-sm d-flex align-items-center ">
+                <a href="{{ route('category.index') }}" class="btn btn-primary btn-sm d-flex align-items-center ">
                     Categoies
                 </a>
             </div>
     </div>
+
+
+
+
+
 
 
     <div class="table-responsive">
