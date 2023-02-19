@@ -13,3 +13,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/menus', [MenuController::class, 'index']);
 Route::get('/menu/{id}', [MenuController::class, 'show']);
+Route::post('/menus', [MenuController::class, 'store']);
+Route::put('/menu/{id}', [MenuController::class, 'update']);
+

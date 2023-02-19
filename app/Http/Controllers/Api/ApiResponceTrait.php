@@ -2,16 +2,22 @@
 
 namespace App\Http\Controllers\Api;
 
+use Hamcrest\Arrays\IsArray;
+
 trait ApiResponceTrait
 {
-    public function apiResponse($data = null, $message = null, $status = null)
+    public function apiResponse($data , $status = 200 , $message = "ok")
     {
         $response = [
-            'data' => $data,
+            'status' => $status,
             'message' => $message,
-            'status' => $status
+            'data' => $data,
         ];
-
-        return response($response, $status);
+        return response($response);
     }
+
+
+
+
+
 }

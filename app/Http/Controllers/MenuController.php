@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Menu;
 use Illuminate\Http\Request;
+use App\Http\Requests\CreateMenuRequest;
 
 class MenuController extends Controller
 {
@@ -30,37 +31,9 @@ class MenuController extends Controller
         );
     }
 
-    public function store(Request $request)
+    public function store(CreateMenuRequest $request)
     {
-
-
-        $request->validate(
-            [
-                'name' => 'required|min:3|max:15',
-                'description' => 'required',
-                'price' => [
-                    'required',
-                    'numeric',
-                    'regex:/^\d{0,8}(\.\d{0,2})?$/',
-                ],
-                'category_id' => 'required|integer',
-                'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            ],
-            [
-                'name.min' => 'The name must be at least 3 characters long.',
-                'name.max' => 'The name may not be greater than 15 characters.',
-                'description.required' => 'A description is required for the menu item.',
-                'price.required' => 'A price is required for the menu item.',
-                'price.numeric' => 'The price must be a number.',
-                'price.regex' => 'The price format must be ########.##.',
-                'category_id.required' => 'A category is required for the menu item.',
-                'category_id.integer' => 'The category must be an integer.',
-                'image.required' => 'An image is required for the menu item.',
-                'image.image' => 'The uploaded file must be an image.',
-                'image.mimes' => 'The image must be a file of type: jpeg, png, jpg, gif, svg.',
-                'image.max' => 'The image may not be larger than 2048 kilobytes.',
-            ]
-        );
+        $validatedData = $request->validated();
 
         if ($request->hasFile('image')) {
             $image = $request->file('image');
@@ -69,21 +42,11 @@ class MenuController extends Controller
             $validatedData['image'] = $imageName;
         }
 
-        Menu::create([
-            'name' => $request->input('name'),
-            'description' => $request->input('description'),
-            'price' => $request->input('price'),
-            'image' => $imageName,
-            'category_id' => $request->input('category_id'),
-            'updated_at' => now(),
-            'created_at' => now()
-        ]);
-
+        Menu::create($validatedData);
 
         return redirect()->route('menue.index')->with(['title' =>'Menue | Show']);
-
-
     }
+
 
     public function show(Menu $menu)
     {

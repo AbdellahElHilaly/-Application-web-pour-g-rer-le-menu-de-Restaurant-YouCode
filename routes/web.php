@@ -30,13 +30,15 @@ Route::middleware([
 });
 
 
-Route::resource('menue' , MenuController::class);
-Route::get('ajax', [CategoryController::class, 'home'])->name('category.home');
-Route::get('category/delete-all', [CategoryController::class, 'destroyAll'])->name('category.destroyAll');
-Route::resource('category', CategoryController::class);
 
 
 
+Route::middleware(['check_user' , 'auth'])->group(function () {
+    Route::resource('menue' , MenuController::class);
+    Route::get('ajax', [CategoryController::class, 'home'])->name('category.home');
+    Route::get('category/delete-all', [CategoryController::class, 'destroyAll'])->name('category.destroyAll');
+    Route::resource('category', CategoryController::class);
+});
 
 
 
